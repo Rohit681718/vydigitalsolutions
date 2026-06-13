@@ -19,7 +19,29 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:20px 8
 .section{padding:80px 8%}
 .title{text-align:center;font-size:42px;margin-bottom:40px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
-.card{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);padding:25px;border-radius:16px}
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:18px;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(0,166,251,0.25);
+}
+
+.card h3{
+margin-bottom:12px;
+font-size:22px;
+}
+
+.card p{
+line-height:1.7;
+color:#d6d6d6;
+}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
 .stat{background:rgba(255,255,255,.08);padding:20px;border-radius:16px}
 .contact{max-width:800px;margin:auto}
@@ -55,14 +77,90 @@ footer{text-align:center;padding:40px;background:#060b18}
 </section>
 
 <section class="section">
-<h2 class="title">Services</h2>
+<h2 class="title">🚀 Our Services</h2>
+
 <div class="grid">
-<div class="card">🌐 Website Development</div>
-<div class="card">📈 SEO Optimization</div>
-<div class="card">📍 Google Business Profile</div>
-<div class="card">📱 Social Media Marketing</div>
-<div class="card">🎯 Lead Generation</div>
-<div class="card">🤖 AI Search Optimization</div>
+
+<div class="card">
+<h3>🌐 Website Development</h3>
+<p>Modern, mobile-friendly websites designed to convert visitors into customers.</p>
+</div>
+
+<div class="card">
+<h3>🛒 E-Commerce Development</h3>
+<p>Professional online stores with secure payments and easy management.</p>
+</div>
+
+<div class="card">
+<h3>📈 SEO Optimization</h3>
+<p>Improve Google rankings and generate more organic traffic.</p>
+</div>
+
+<div class="card">
+<h3>📍 Google Business Profile</h3>
+<p>Boost your visibility on Google Maps and local search results.</p>
+</div>
+
+<div class="card">
+<h3>📱 Social Media Marketing</h3>
+<p>Grow your brand through Facebook, Instagram and other platforms.</p>
+</div>
+
+<div class="card">
+<h3>🎯 Lead Generation</h3>
+<p>Generate high-quality leads for your business consistently.</p>
+</div>
+
+<div class="card">
+<h3>💰 Google Ads Management</h3>
+<p>Run profitable advertising campaigns and maximize ROI.</p>
+</div>
+
+<div class="card">
+<h3>📣 Facebook & Instagram Ads</h3>
+<p>Reach your ideal customers with targeted social media advertising.</p>
+</div>
+
+<div class="card">
+<h3>🤖 AI Search Optimization</h3>
+<p>Prepare your business for AI-powered search visibility and growth.</p>
+</div>
+
+<div class="card">
+<h3>✍️ Content Writing</h3>
+<p>Professional website content, blogs and marketing copy.</p>
+</div>
+
+<div class="card">
+<h3>🎨 Logo & Branding</h3>
+<p>Create a professional brand identity that stands out.</p>
+</div>
+
+<div class="card">
+<h3>⭐ Reputation Management</h3>
+<p>Improve online reviews and build customer trust.</p>
+</div>
+
+<div class="card">
+<h3>📧 Email Marketing</h3>
+<p>Engage customers and increase repeat business with email campaigns.</p>
+</div>
+
+<div class="card">
+<h3>🔍 Local SEO</h3>
+<p>Rank higher in local searches and attract nearby customers.</p>
+</div>
+
+<div class="card">
+<h3>⚙️ CRM Setup & Automation</h3>
+<p>Automate lead management and streamline business processes.</p>
+</div>
+
+<div class="card">
+<h3>📹 Video Marketing</h3>
+<p>Create engaging video content to promote your products and services.</p>
+</div>
+
 </div>
 </section>
 
