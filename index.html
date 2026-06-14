@@ -41,6 +41,30 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:20px 8
 .title{text-align:center;font-size:42px;margin-bottom:40px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
 .card{
+background:linear-gradient(145deg,#16213e,#1e293b);
+padding:25px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+transition:all .3s ease;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(0,166,251,.35);
+}
+
+.card h3{
+font-size:22px;
+margin-bottom:12px;
+color:#00a6fb;
+}
+
+.card p{
+color:#d1d5db;
+line-height:1.7;
+}
+
 .testimonial-card:nth-child(1){
 background:linear-gradient(135deg,#1e3c72,#2a5298);
 }
