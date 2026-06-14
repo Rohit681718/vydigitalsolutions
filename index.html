@@ -27,7 +27,48 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:20px 8
 input,textarea{width:100%;padding:14px;margin:10px 0;border:none;border-radius:10px}
 button{padding:14px 28px;border:none;border-radius:10px;background:#00a6fb;color:#fff}
 footer{text-align:center;padding:40px;background:#060b18}
-@media(max-width:768px){.hero h1{font-size:40px}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){
+
+nav{
+flex-direction:column;
+text-align:center;
+gap:10px;
+padding:15px;
+}
+
+.logo{
+font-size:32px;
+}
+
+.hero{
+min-height:70vh;
+padding:30px 20px;
+}
+
+.hero h1{
+font-size:38px;
+line-height:1.2;
+}
+
+.hero p{
+font-size:18px;
+line-height:1.5;
+}
+
+.hero-stats{
+grid-template-columns:1fr;
+gap:15px;
+}
+
+.stats{
+grid-template-columns:1fr 1fr;
+}
+
+.phone{
+font-size:18px;
+}
+
+}
     .portfolio-img{
 width:100%;
 height:220px;
