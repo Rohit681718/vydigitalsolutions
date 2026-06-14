@@ -52,7 +52,30 @@ background:linear-gradient(135deg,#4b134f,#c94b4b);
 .portfolio .card:hover .portfolio-img{
 transform:scale(1.05);
 }
+.testimonial-card{
+padding:30px;
+border-radius:20px;
+text-align:center;
+color:white;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
 
+.testimonial-card:nth-child(1){
+background:linear-gradient(135deg,#1e3c72,#2a5298);
+}
+
+.testimonial-card:nth-child(2){
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+
+.testimonial-card:nth-child(3){
+background:linear-gradient(135deg,#4b134f,#c94b4b);
+}
+
+.testimonial-card img{
+margin-bottom:15px;
+border:3px solid white;
+}
 </style>
 </head>
 <body>
@@ -231,26 +254,34 @@ transform:scale(1.05);
 </section>
 
 
-<div class="card testimonial-card">
-    <h3>⭐⭐⭐⭐⭐</h3>
-    <p>"Excellent website and SEO service. We started getting more leads within weeks."</p>
-    <h4>Michael Thompson</h4>
-    <span>Real Estate Consultant</span>
+<section class="section">
+<h2 class="title">What Our Clients Say</h2>
+
+<div class="grid">
+
+<div class="testimonial-card">
+<img src="https://randomuser.me/api/portraits/men/32.jpg" width="80" style="border-radius:50%;">
+<h4>Michael Thompson</h4>
+<span>Real Estate Consultant</span>
+<p>"Excellent website and SEO service. We started getting more leads within weeks."</p>
 </div>
 
-<div class="card testimonial-card">
-    <h3>⭐⭐⭐⭐⭐</h3>
-    <p>"Professional communication and fast delivery. Highly recommended."</p>
-    <h4>Sarah Williams</h4>
-    <span>Dental Clinic Owner</span>
+<div class="testimonial-card">
+<img src="https://randomuser.me/api/portraits/women/44.jpg" width="80" style="border-radius:50%;">
+<h4>Sarah Williams</h4>
+<span>Dental Clinic Owner</span>
+<p>"Professional communication and fast delivery. Highly recommended."</p>
 </div>
 
-<div class="card testimonial-card">
-    <h3>⭐⭐⭐⭐⭐</h3>
-    <p>"Great results from local SEO and Google Business Profile optimization."</p>
-    <h4>David Miller</h4>
-    <span>Roofing Company Owner</span>
+<div class="testimonial-card">
+<img src="https://randomuser.me/api/portraits/men/68.jpg" width="80" style="border-radius:50%;">
+<h4>David Miller</h4>
+<span>Roofing Company Owner</span>
+<p>"Great results from local SEO and Google Business Profile optimization."</p>
 </div>
+
+</div>
+</section>
 
 <section class="section" id="contact">
 <h2 class="title">Contact Us</h2>
