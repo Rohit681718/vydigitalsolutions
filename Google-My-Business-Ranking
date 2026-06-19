@@ -1,1 +1,289 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Google Business Profile Ranking Services | VY Digital Solutions</title>
+
+<meta name="description" content="Improve your Google Business Profile ranking, increase visibility on Google Maps, generate more reviews, and attract more local customers with VY Digital Solutions.">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#f5f7fa;
+color:#333;
+line-height:1.6;
+}
+
+header{
+background:#0f172a;
+color:#fff;
+padding:80px 20px;
+text-align:center;
+}
+
+header h1{
+font-size:42px;
+margin-bottom:20px;
+}
+
+header p{
+max-width:850px;
+margin:auto;
+font-size:18px;
+}
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:14px 28px;
+background:#2563eb;
+color:#fff;
+text-decoration:none;
+border-radius:8px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:60px 20px;
+}
+
+.section-title{
+text-align:center;
+font-size:32px;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#fff;
+padding:25px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.card h3{
+margin-bottom:10px;
+}
+
+.faq{
+background:#fff;
+padding:20px;
+margin-bottom:15px;
+border-radius:8px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.contact{
+background:#fff;
+padding:30px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.contact input,
+.contact textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+.contact button{
+background:#2563eb;
+color:white;
+border:none;
+padding:14px 28px;
+border-radius:6px;
+cursor:pointer;
+}
+
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:40px 20px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+
+<h1>Google Business Profile Ranking Services</h1>
+
+<p>
+Want to rank higher on Google Maps and attract more local customers?
+We help businesses improve their Google Business Profile rankings through optimization,
+review generation, reputation management, and local SEO strategies.
+</p>
+
+<a href="#contact" class="btn">Get Free GBP Audit</a>
+
+</header>
+
+<section class="container">
+
+<h2 class="section-title">Our Google Business Profile Services</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Google Business Profile Optimization</h3>
+<p>Complete profile optimization to improve local rankings.</p>
+</div>
+
+<div class="card">
+<h3>Google Maps Ranking</h3>
+<p>Increase visibility in local map results and attract more customers.</p>
+</div>
+
+<div class="card">
+<h3>Review Generation System</h3>
+<p>Get more positive reviews from satisfied customers.</p>
+</div>
+
+<div class="card">
+<h3>Reputation Management</h3>
+<p>Build trust and strengthen your online reputation.</p>
+</div>
+
+<div class="card">
+<h3>GBP Suspension Recovery</h3>
+<p>Assistance with suspended Google Business Profiles.</p>
+</div>
+
+<div class="card">
+<h3>Local SEO Services</h3>
+<p>Improve your local search presence and visibility.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="container">
+
+<h2 class="section-title">Benefits of Better Google Maps Rankings</h2>
+
+<div class="grid">
+
+<div class="card"><h3>More Phone Calls</h3></div>
+
+<div class="card"><h3>More Website Visits</h3></div>
+
+<div class="card"><h3>More Local Customers</h3></div>
+
+<div class="card"><h3>Higher Google Visibility</h3></div>
+
+<div class="card"><h3>More Reviews</h3></div>
+
+<div class="card"><h3>Increased Revenue</h3></div>
+
+</div>
+
+</section>
+
+<section class="container">
+
+<h2 class="section-title">How We Improve Rankings</h2>
+
+<div class="card">
+
+<ol>
+<li>Google Business Profile Audit</li>
+<li>Category Optimization</li>
+<li>Service Optimization</li>
+<li>Review Strategy Setup</li>
+<li>Local SEO Improvements</li>
+<li>Monthly Ranking Monitoring</li>
+</ol>
+
+</div>
+
+</section>
+
+<section class="container">
+
+<h2 class="section-title">Frequently Asked Questions</h2>
+
+<div class="faq">
+<h3>How long does it take to improve Google Maps rankings?</h3>
+<p>Most businesses begin seeing measurable improvements within a few months depending on competition and profile quality.</p>
+</div>
+
+<div class="faq">
+<h3>Can you help with a suspended profile?</h3>
+<p>Yes, we assist businesses with Google Business Profile suspension recovery and optimization.</p>
+</div>
+
+<div class="faq">
+<h3>Do reviews help rankings?</h3>
+<p>Yes. High-quality reviews and consistent review generation can help improve visibility and trust.</p>
+</div>
+
+</section>
+
+<section class="container" id="contact">
+
+<h2 class="section-title">Request A Free Google Business Profile Audit</h2>
+
+<div class="contact">
+
+<form action="https://formsubmit.co/info@vysolutions.ca" method="POST">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<input type="text" name="phone" placeholder="Phone Number">
+
+<input type="text" name="business" placeholder="Business Name">
+
+<textarea name="message" rows="6" placeholder="Tell us about your business and goals"></textarea>
+
+<input type="hidden" name="_subject" value="New Google Business Profile Lead">
+
+<input type="hidden" name="_captcha" value="false">
+
+<button type="submit">Request Free Audit</button>
+
+</form>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>VY Digital Solutions</h2>
+
+<p>
+Google Business Profile Optimization • Google Maps Ranking • Local SEO • Reputation Management • Review Generation
+</p>
+
+<br>
+
+<p>Phone: 431-221-9589</p>
+<p>Email: info@vysolutions.ca</p>
+
+</footer>
+
+</body>
+</html>
