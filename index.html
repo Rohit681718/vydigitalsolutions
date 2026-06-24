@@ -56,7 +56,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:20px 8
 .secondary{border:2px solid #fff;color:#fff}
 .section{padding:80px 8%}
 .title{text-align:center;font-size:42px;margin-bottom:40px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
 
 
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
@@ -75,7 +75,7 @@ footer{text-align:center;padding:40px;background:#060b18}
     gap:30px;
 }
 @media(max-width:768px){
-
+.grid{grid-template-columns:1fr;}
 nav{
 flex-direction:column;
 text-align:center;
