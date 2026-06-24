@@ -61,10 +61,19 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:20px 8
 
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
 .stat{background:rgba(255,255,255,.08);padding:20px;border-radius:16px}
-.contact{max-width:800px;margin:auto}
+.contact{max-width:1200px;margin:auto}
 input,textarea{width:100%;padding:14px;margin:10px 0;border:none;border-radius:10px}
 button{padding:14px 28px;border:none;border-radius:10px;background:#00a6fb;color:#fff}
 footer{text-align:center;padding:40px;background:#060b18}
+    .section{
+    padding:80px 5%;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+}
 @media(max-width:768px){
 
 nav{
