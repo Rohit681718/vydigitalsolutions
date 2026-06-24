@@ -56,7 +56,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:20px 8
 .secondary{border:2px solid #fff;color:#fff}
 .section{padding:80px 8%}
 .title{text-align:center;font-size:42px;margin-bottom:40px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items;start}
 
 
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
@@ -71,7 +71,7 @@ footer{text-align:center;padding:40px;background:#060b18}
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    grid-template-columns:repeat(3,1fr);
     gap:30px;
 }
 @media(max-width:768px){
@@ -145,6 +145,8 @@ padding:30px;
 border-radius:20px;
 text-align:center;
 color:white;
+    min-height:320px;
+    max-width:100%
 box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
@@ -167,7 +169,6 @@ border:3px solid white;
     .testimonial-card{
 transition:0.4s;
 }
-
 .testimonial-card:hover{
 transform:translateY(-10px);
 box-shadow:0 15px 35px rgba(0,0,0,0.4);
