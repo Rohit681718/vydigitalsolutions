@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenLight Driving School — G1, G2 &amp; G Test Prep, BDE Course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EFE6D0;
+    --paper-2: #E5D9BC;
+    --ink: #1A1A1A;
+    --ink-soft: #55524A;
+    --stamp: #B31217;
+    --stamp-dark: #7E0C0F;
+    --blue: #1B3A6B;
+    --line: #C9BC96;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif; background:var(--paper); color:var(--ink); line-height:1.6;
+    background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0 1px, transparent 1px 28px);
+  }
+  h1,h2,h3{font-family:'Special Elite', monospace; font-weight:400; color:var(--ink); line-height:1.25;}
+  a{color:inherit; text-decoration:none;}
+  .type{font-family:'Special Elite', monospace;}
+  .wrap{max-width:1060px; margin:0 auto; padding:0 24px;}
+  .section{padding:80px 0;}
+  .form-label{font-family:'Special Elite'; font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px; display:flex; align-items:center; gap:10px;}
+  .form-label::before{content:"§"; color:var(--stamp);}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:15px 28px; font-family:'Special Elite'; font-size:14px; border:2px solid var(--ink); cursor:pointer;}
+  .btn--ink{background:var(--ink); color:var(--paper);}
+  .btn--ink:hover{background:var(--stamp); border-color:var(--stamp);}
+  .btn--outline{background:transparent; color:var(--ink);}
+  .btn--outline:hover{background:var(--ink); color:var(--paper);}
+
+  .checkbox{width:16px; height:16px; border:2px solid var(--ink); flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; margin-right:10px;}
+  .checkbox.checked::after{content:"✓"; font-size:13px; font-weight:700; line-height:1;}
+
+  /* dashed cut-line divider */
+  .cut-line{border-top:2px dashed var(--ink-soft); position:relative; margin:0;}
+  .cut-line span{position:absolute; left:24px; top:-11px; background:var(--paper); padding:0 10px; font-family:'Special Elite'; font-size:11px; color:var(--ink-soft);}
+
+  header{background:var(--paper); border-bottom:3px double var(--ink);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-mark{width:44px; height:44px; border:2px solid var(--ink); display:flex; align-items:center; justify-content:center; font-family:'Special Elite'; font-size:14px;}
+  .brand-name{font-family:'Special Elite'; font-size:19px;}
+  .brand-tag{font-size:10.5px; color:var(--ink-soft); letter-spacing:0.04em;}
+  .nav-links{display:flex; gap:30px; align-items:center;}
+  .nav-links a{font-size:13.5px; font-weight:500; color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--stamp);}
+  .nav-call{border:2px solid var(--ink); padding:9px 18px; font-family:'Special Elite'; font-size:13px;}
+  .nav-call:hover{background:var(--ink); color:var(--paper);}
+
+  .hero{padding:56px 0 0;}
+  .hero-inner{display:grid; grid-template-columns:1.05fr 0.95fr; gap:44px; align-items:center;}
+  .hero-form{border:2px solid var(--ink); padding:30px 30px 34px; background:var(--paper-2); position:relative;}
+  .hero-form-id{position:absolute; top:14px; right:18px; font-family:'Special Elite'; font-size:10px; color:var(--ink-soft);}
+  h1{font-size:38px; margin:6px 0 18px;}
+  .hero p.lede{color:var(--ink-soft); font-size:15.5px; max-width:440px; margin-bottom:26px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:28px;}
+  .hero-checklist{border-top:1px dashed var(--line); padding-top:18px;}
+  .hero-checklist div{display:flex; align-items:center; font-size:13.5px; margin-bottom:8px;}
+
+  .hero-photo{position:relative; border:2px solid var(--ink);}
+  .hero-photo img{width:100%; height:380px; object-fit:cover; display:block; filter:sepia(15%) contrast(1.05);}
+  .stamp-badge{
+    position:absolute; top:24px; right:20px; width:110px; height:110px; border-radius:50%;
+    border:4px solid var(--stamp); color:var(--stamp); display:flex; align-items:center; justify-content:center;
+    text-align:center; font-family:'Special Elite'; font-size:22px; font-weight:400; transform:rotate(-16deg);
+    background:rgba(255,255,255,0.75); letter-spacing:0.05em;
+  }
+  .photo-caption{background:var(--ink); color:var(--paper); font-family:'Special Elite'; font-size:11px; padding:8px 14px; letter-spacing:0.03em;}
+
+  .strip{background:var(--paper-2); border-top:2px solid var(--ink); border-bottom:2px solid var(--ink);}
+  .strip-row{display:grid; grid-template-columns:repeat(4,1fr);}
+  .strip-item{padding:22px 16px; border-right:1px dashed var(--line); display:flex; align-items:center; gap:10px;}
+  .strip-item:last-child{border-right:none;}
+  .strip-item span{font-size:13px; font-weight:600;}
+
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start;}
+  .about-grid h2{font-size:26px; margin-bottom:16px;}
+  .about-grid p{color:var(--ink-soft); font-size:15px; margin-bottom:16px; max-width:48ch;}
+  .field-table{border:1px solid var(--ink);}
+  .field-row{display:flex; justify-content:space-between; padding:14px 16px; border-bottom:1px dashed var(--line); font-size:14px;}
+  .field-row:last-child{border-bottom:none;}
+  .field-row span:first-child{color:var(--ink-soft); font-family:'Special Elite'; font-size:12px; text-transform:uppercase;}
+  .field-row span:last-child{font-weight:600;}
+
+  .services h2{font-size:26px; margin-bottom:8px;}
+  .services > .wrap > p.intro{color:var(--ink-soft); margin-bottom:32px; font-size:14px;}
+  .checklist-sheet{border:2px solid var(--ink); background:var(--paper-2);}
+  .cl-row{display:flex; align-items:flex-start; gap:14px; padding:18px 20px; border-bottom:1px dashed var(--line);}
+  .cl-row:last-child{border-bottom:none;}
+  .cl-row.marked{background:rgba(179,18,23,0.06);}
+  .cl-row h3{font-size:16px; margin-bottom:4px; font-family:'Inter'; font-weight:600;}
+  .cl-row p{font-size:13px; color:var(--ink-soft);}
+  .cl-tag{font-family:'Special Elite'; font-size:10px; color:var(--stamp); border:1px solid var(--stamp); padding:2px 8px; margin-left:10px;}
+
+  .special-note{border:2px dashed var(--stamp); padding:22px 24px; margin-top:30px; background:rgba(179,18,23,0.04);}
+  .special-note h3{font-family:'Special Elite'; font-size:14px; color:var(--stamp); margin-bottom:10px; text-transform:uppercase;}
+  .special-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+  .special-item{font-size:13.5px;}
+  .special-item b{display:block; margin-bottom:3px;}
+  .special-item span{color:var(--ink-soft);}
+
+  .gallery h2{font-size:26px; margin-bottom:8px;}
+  .gallery > .wrap > p{color:var(--ink-soft); margin-bottom:32px; max-width:52ch;}
+  .route-row{display:flex; gap:18px; align-items:flex-start; padding:16px 0; border-bottom:1px dashed var(--line);}
+  .route-row:last-child{border-bottom:none;}
+  .route-num{font-family:'Special Elite'; font-size:22px; color:var(--stamp); width:36px; flex-shrink:0;}
+  .route-row h4{font-size:14.5px; margin-bottom:4px; font-family:'Inter'; font-weight:600;}
+  .route-row p{font-size:13px; color:var(--ink-soft);}
+
+  .testimonials{background:var(--paper-2); border-top:2px solid var(--ink); border-bottom:2px solid var(--ink);}
+  .test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--ink);}
+  .test-card{background:var(--paper-2); padding:26px 22px;}
+  .test-card p{font-size:13.5px; margin-bottom:20px; font-style:italic;}
+  .test-sig{border-top:1px solid var(--ink); padding-top:10px; font-family:'Special Elite'; font-size:13px;}
+  .test-sig span{display:block; font-size:11px; color:var(--ink-soft); font-family:'Inter'; margin-top:2px;}
+
+  .license{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+  .lic-row{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--ink);}
+  .lic-item{background:var(--paper); padding:16px 18px; display:flex; justify-content:space-between; align-items:center;}
+  .lic-item b{font-size:13.5px; display:block;}
+  .lic-item span{font-size:11.5px; color:var(--ink-soft);}
+  .lic-seal{width:44px; height:44px; border-radius:50%; border:2px solid var(--blue); color:var(--blue); display:flex; align-items:center; justify-content:center; font-family:'Special Elite'; font-size:9px; text-align:center; flex-shrink:0;}
+
+  .contact{background:var(--ink); color:var(--paper);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  .contact h2{color:var(--paper); font-size:26px; margin-bottom:14px;}
+  .contact .form-label{color:#C9BC96;}
+  .contact .form-label::before{color:var(--stamp);}
+  .contact p.lede{color:#B8B1A0; margin-bottom:26px; max-width:40ch;}
+  .contact-info-row{display:flex; justify-content:space-between; border-bottom:1px dashed #4A4A44; padding:13px 0; font-size:13.5px;}
+  .contact-info-row span:last-child{color:#C9BC96; font-family:'Special Elite'; font-size:12px;}
+  .form-card{background:var(--paper); color:var(--ink); padding:30px; border:2px solid var(--paper-2);}
+  .form-row{margin-bottom:16px;}
+  .form-row label{display:block; font-family:'Special Elite'; font-size:11px; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.03em; color:var(--ink-soft);}
+  .form-row input, .form-row select, .form-row textarea{width:100%; padding:11px 13px; border:1px solid var(--line); font-family:'Inter'; font-size:14px; background:#fff;}
+  .form-row textarea{resize:vertical; min-height:88px;}
+  .form-two{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+
+  footer{background:#151513; color:#8A8578; padding:36px 0 22px;}
+  .foot-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:26px; padding-bottom:22px; border-bottom:1px solid #3A3830;}
+  .foot-brand{color:var(--paper); font-family:'Special Elite'; font-size:16px; margin-bottom:8px;}
+  .foot-col b{color:#C9BC96; font-family:'Special Elite'; font-size:11px; display:block; margin-bottom:10px; text-transform:uppercase;}
+  .foot-col a{display:block; font-size:12.5px; margin-bottom:7px;}
+  .foot-col a:hover{color:var(--stamp);}
+  .foot-bottom{display:flex; justify-content:space-between; padding-top:16px; font-size:11px; flex-wrap:wrap; gap:10px;}
+  .demo-note{background:var(--stamp); color:#fff; text-align:center; font-family:'Special Elite'; font-size:11.5px; padding:8px 0; letter-spacing:0.02em;}
+
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .hero-inner{grid-template-columns:1fr;}
+    h1{font-size:28px;}
+    .hero-photo img{height:240px;}
+    .stamp-badge{width:85px; height:85px; font-size:17px; top:14px; right:14px;}
+    .about-grid, .contact-grid, .license{grid-template-columns:1fr; gap:30px;}
+    .strip-row{grid-template-columns:1fr 1fr;}
+    .strip-item{border-bottom:1px dashed var(--line);}
+    .test-grid{grid-template-columns:1fr;}
+    .special-grid{grid-template-columns:1fr;}
+    .form-two{grid-template-columns:1fr;}
+    .section{padding:48px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-note">DEMO WEBSITE — CREATED BY VY DIGITAL SOLUTIONS — FOR PORTFOLIO SHOWCASE ONLY</div>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="brand-mark">GL</div>
+      <div><div class="brand-name">GreenLight Driving School</div><div class="brand-tag">MTO APPROVED · BDE PROVIDER</div></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#services">Courses</a>
+      <a href="#work">Test Routes</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:+1XXXXXXXXXX" class="nav-call">+1 (XXX) XXX-XXXX</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-form">
+      <div class="hero-form-id">FORM G-ROAD-TEST · REV. 2026</div>
+      <div class="form-label">ROAD TEST EVALUATION</div>
+      <h1>Pass your road<br>test, first try.</h1>
+      <p class="lede">GreenLight Driving School has trained new drivers across Toronto and the GTA for over 10 years — G1 and G2 lessons, MTO-approved BDE course, and mock road tests.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn--ink">Book a Lesson</a>
+        <a href="tel:+1XXXXXXXXXX" class="btn btn--outline">Call Now</a>
+      </div>
+      <div class="hero-checklist">
+        <div><span class="checkbox checked"></span> 2,400+ students trained since 2015</div>
+        <div><span class="checkbox checked"></span> 91% first-attempt pass rate</div>
+        <div><span class="checkbox checked"></span> Dual-brake, fully insured vehicles</div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1630406144797-821be1f35d75?w=800&q=80&auto=format&fit=crop" alt="Driving instructor with clipboard beside student's car">
+      <div class="stamp-badge">PASS</div>
+      <div class="photo-caption">EXHIBIT A — INSTRUCTOR ON-SITE EVALUATION</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap strip-row">
+    <div class="strip-item"><span class="checkbox checked"></span><span>MTO Licensed</span></div>
+    <div class="strip-item"><span class="checkbox checked"></span><span>BDE Certified</span></div>
+    <div class="strip-item"><span class="checkbox checked"></span><span>Dual-Brake Vehicle</span></div>
+    <div class="strip-item"><span class="checkbox checked"></span><span>Pick-Up &amp; Drop-Off</span></div>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="form-label">SECTION A — ABOUT THE SCHOOL</div>
+      <h2>Patient instructors.<br>Real test routes.</h2>
+      <p>Founded in 2015, GreenLight now has six MTO-licensed instructors teaching new drivers across Toronto. We train on the same roads your road test will actually use.</p>
+      <p>Whether you're starting from zero or brushing up before your G2 or G test, every lesson is built around where you're weak — not a fixed script.</p>
+      <a href="#services" class="btn btn--outline">View Course List</a>
+    </div>
+    <div class="field-table">
+      <div class="field-row"><span>Est.</span><span>2015</span></div>
+      <div class="field-row"><span>Licensed Instructors</span><span>6</span></div>
+      <div class="field-row"><span>Students Trained</span><span>2,400+</span></div>
+      <div class="field-row"><span>First-Try Pass Rate</span><span>91%</span></div>
+      <div class="field-row"><span>Service Area</span><span>Toronto &amp; GTA</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="wrap">
+    <div class="form-label">SECTION B — COURSES OFFERED</div>
+    <h2>From your G1 to your full G.</h2>
+    <p class="intro">Tick the box below that matches where you are — that's where we start.</p>
+    <div class="checklist-sheet">
+      <div class="cl-row"><span class="checkbox"></span><div><h3>G1 Test Preparation</h3><p>Written knowledge test prep — road signs, rules, and practice quizzes.</p></div></div>
+      <div class="cl-row"><span class="checkbox"></span><div><h3>G2 Road Test Prep</h3><p>In-car lessons focused on the exact G2 test route and manoeuvres.</p></div></div>
+      <div class="cl-row"><span class="checkbox"></span><div><h3>G Road Test Prep</h3><p>Highway merging, lane changes, and full-speed driving practice.</p></div></div>
+      <div class="cl-row marked"><span class="checkbox checked"></span><div><h3>BDE Course (4 Weeks) <span class="cl-tag">MOST BOOKED</span></h3><p>MTO-approved Beginner Driver Education — cuts your wait time and gets you an insurance discount.</p></div></div>
+      <div class="cl-row"><span class="checkbox"></span><div><h3>In-Car Driving Lessons</h3><p>One-on-one lessons, hourly or in multi-lesson packages.</p></div></div>
+      <div class="cl-row"><span class="checkbox"></span><div><h3>Mock Road Tests</h3><p>A full practice test, timed and scored like the real DriveTest exam.</p></div></div>
+      <div class="cl-row"><span class="checkbox"></span><div><h3>Highway Driving Lessons</h3><p>Merging, lane changes, and speed control on the 400-series highways.</p></div></div>
+      <div class="cl-row"><span class="checkbox"></span><div><h3>Defensive Driving</h3><p>Hazard awareness and collision-avoidance techniques for new drivers.</p></div></div>
+      <div class="cl-row"><span class="checkbox"></span><div><h3>Pick-Up &amp; Drop-Off</h3><p>We collect you from home, school, or work for every lesson.</p></div></div>
+    </div>
+
+    <div class="special-note">
+      <h3>Specialized Programs — Section B-1</h3>
+      <div class="special-grid">
+        <div class="special-item"><b>Nervous &amp; First-Time Driver Program</b><span>Extra-patient, no-pressure lessons for anxious beginners — a female instructor is available on request.</span></div>
+        <div class="special-item"><b>New to Canada Driving Program</b><span>For newcomers with experience driving abroad — a refresher on Ontario road rules and local test routes.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section gallery" id="work">
+  <div class="wrap">
+    <div class="form-label">SECTION C — TEST ROUTES ON FILE</div>
+    <h2>Practice where the test actually happens.</h2>
+    <p>We train on the real DriveTest routes used at your local test centre.</p>
+
+    <div class="route-row">
+      <div class="route-num">01</div>
+      <div><h4>Parallel parking &amp; three-point turns</h4><p>The manoeuvres most G2 candidates lose points on — practiced until they're automatic.</p></div>
+    </div>
+    <div class="route-row">
+      <div class="route-num">02</div>
+      <div><h4>Highway merging &amp; lane changes</h4><p>Full-speed practice on the same 400-series ramps used in the G road test.</p></div>
+    </div>
+    <div class="route-row">
+      <div class="route-num">03</div>
+      <div><h4>Four-way stops &amp; pedestrian crossings</h4><p>The intersections examiners watch most closely, mapped out and rehearsed.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials" id="testimonials">
+  <div class="wrap" style="padding-bottom:30px;">
+    <div class="form-label">SECTION D — STUDENT STATEMENTS</div>
+    <h2 style="font-size:26px;">What our students say.</h2>
+  </div>
+  <div class="wrap test-grid">
+    <div class="test-card"><p>"Failed my G2 once with another school. Passed first try after two lessons here — they knew exactly what I was doing wrong."</p><div class="test-sig">Sara M.<span>G2 STUDENT — SIGNED STATEMENT</span></div></div>
+    <div class="test-card"><p>"Took the BDE course for the insurance discount. Instructor was patient and the mock test felt exactly like the real one."</p><div class="test-sig">Raj K.<span>BDE COURSE — SIGNED STATEMENT</span></div></div>
+    <div class="test-card"><p>"I was nervous about driving in a new country. My instructor was patient about the different road rules here. Passed on my first try."</p><div class="test-sig">Amara O.<span>NEW TO CANADA — SIGNED STATEMENT</span></div></div>
+  </div>
+</section>
+
+<section class="section license">
+  <div class="wrap license">
+    <div>
+      <div class="form-label">SECTION E — CERTIFICATION</div>
+      <h2 style="font-size:24px; margin-bottom:14px;">MTO Licensed.<br>BDE Approved.</h2>
+      <p style="color:var(--ink-soft); max-width:44ch; font-size:14px;">GreenLight Driving School and all instructors are licensed under the Ontario Ministry of Transportation, license #XXXXXX. Our BDE course is approved for the government insurance discount.</p>
+    </div>
+    <div class="lic-row">
+      <div class="lic-item"><div><b>MTO License</b><span>#XXXXXX</span></div><div class="lic-seal">MTO<br>LIC</div></div>
+      <div class="lic-item"><div><b>BDE Approved Course</b><span>Insurance discount eligible</span></div><div class="lic-seal">BDE<br>OK</div></div>
+      <div class="lic-item"><div><b>Fully Insured Vehicles</b><span>Dual-brake equipped</span></div><div class="lic-seal">INS<br>OK</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="form-label">SECTION F — BOOKING REQUEST</div>
+      <h2>Book your first lesson.</h2>
+      <p class="lede">Tell us which test you're preparing for and we'll get back to you within a few hours.</p>
+      <div class="contact-info-row"><span>Phone</span><span>+1 (XXX) XXX-XXXX</span></div>
+      <div class="contact-info-row"><span>Email</span><span>info@greenlightdriving.com</span></div>
+      <div class="contact-info-row" style="border-bottom:none;"><span>Service Area</span><span>Toronto &amp; GTA</span></div>
+    </div>
+    <div class="form-card">
+      <form id="bookingForm" action="https://formsubmit.co/info@greenlightdriving.com" method="POST">
+        <input type="hidden" name="_subject" value="New lesson booking — GreenLight Driving School website">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-row"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required></div>
+        <div class="form-two">
+          <div class="form-row"><label>Phone</label><input type="tel" name="phone" placeholder="(XXX) XXX-XXXX" required></div>
+          <div class="form-row"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
+        </div>
+        <div class="form-row"><label>What Do You Need</label>
+          <select name="service">
+            <option>G1 test preparation</option><option>G2 road test prep</option><option>G road test prep</option><option>BDE course (4 weeks)</option><option>In-car driving lessons</option><option>Mock road test</option><option>Nervous / first-time driver program</option><option>New to Canada driving program</option>
+          </select>
+        </div>
+        <div class="form-row"><label>Message</label><textarea name="message" placeholder="Tell us about your experience level" required></textarea></div>
+        <button type="submit" class="btn btn--ink" style="width:100%; justify-content:center;">Submit Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="foot-brand">GreenLight Driving School</div><p style="font-size:12.5px; max-width:26ch;">MTO-licensed instructors serving Toronto and the GTA since 2015.</p></div>
+      <div class="foot-col"><b>Courses</b><a href="#services">G2 test prep</a><a href="#services">BDE course</a><a href="#services">Nervous driver program</a></div>
+      <div class="foot-col"><b>Company</b><a href="#about">About us</a><a href="#work">Test routes</a><a href="#testimonials">Reviews</a></div>
+      <div class="foot-col"><b>Contact</b><a href="tel:+1XXXXXXXXXX">+1 (XXX) XXX-XXXX</a><a href="mailto:info@greenlightdriving.com">info@greenlightdriving.com</a></div>
+    </div>
+    <div class="wrap foot-bottom" style="padding:0;"><span>© 2026 GreenLight Driving School. All rights reserved.</span><span>Demo website by VY Digital Solutions</span></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e){
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

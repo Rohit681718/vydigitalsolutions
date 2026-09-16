@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bright Line Architecture — Residential &amp; Commercial Architects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #FAF8F3;
+    --ink: #1D3557;
+    --ink-soft: #5B6C85;
+    --accent: #B5563C;
+    --accent-light: #F0DDD3;
+    --line: #C9C2B0;
+    --white: #ffffff;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif; background:var(--paper); color:var(--ink); line-height:1.65;
+    background-image:
+      linear-gradient(rgba(29,53,87,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(29,53,87,0.05) 1px, transparent 1px);
+    background-size:32px 32px;
+  }
+  h1,h2,h3{font-family:'Space Grotesk', sans-serif; font-weight:600; color:var(--ink); line-height:1.1;}
+  a{color:inherit; text-decoration:none;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  .section{padding:90px 0;}
+  .tag-label{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--accent); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:16px; display:flex; align-items:center; gap:10px;}
+  .tag-label::before{content:"§"; font-size:13px;}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:15px 28px; font-weight:500; font-size:14.5px; border:1.5px solid var(--ink); cursor:pointer; font-family:'Space Grotesk';}
+  .btn--solid{background:var(--ink); color:var(--paper);}
+  .btn--solid:hover{background:var(--accent); border-color:var(--accent);}
+  .btn--accent{background:var(--accent); color:#fff; border-color:var(--accent);}
+  .btn--accent:hover{background:var(--ink); border-color:var(--ink);}
+  .btn--outline{background:transparent; color:var(--ink);}
+  .btn--outline:hover{background:var(--ink); color:var(--paper);}
+
+  /* dimension-line divider — the signature motif */
+  .dim-line{display:flex; align-items:center; gap:10px; color:var(--ink-soft); padding:14px 0;}
+  .dim-line::before, .dim-line::after{content:""; flex:1; height:1px; background:var(--line); position:relative;}
+  .dim-line::before{border-left:1px solid var(--ink-soft);}
+  .dim-line::after{border-right:1px solid var(--ink-soft);}
+  .dim-label{font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.05em; white-space:nowrap;}
+
+  header{background:var(--paper); border-bottom:1.5px solid var(--ink);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:20px 0;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-mark{width:38px; height:38px; border:1.5px solid var(--ink); display:flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono'; font-size:13px; font-weight:500;}
+  .brand-name{font-family:'Space Grotesk'; font-weight:600; font-size:18px;}
+  .brand-tag{font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--ink-soft); letter-spacing:0.03em;}
+  .nav-links{display:flex; gap:32px; align-items:center;}
+  .nav-links a{font-size:13.5px; font-weight:500; color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--accent);}
+  .nav-call{font-family:'IBM Plex Mono'; font-size:13px; border:1.5px solid var(--ink); padding:9px 16px;}
+  .nav-call:hover{background:var(--ink); color:var(--paper);}
+
+  .hero-inner{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; padding:60px 0 40px;}
+  .hero h1{font-size:44px; margin-bottom:20px;}
+  .hero h1 .hi{color:var(--accent);}
+  .hero p.lede{color:var(--ink-soft); font-size:16px; max-width:440px; margin-bottom:28px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:30px;}
+  .hero-specs{display:flex; gap:0; font-family:'IBM Plex Mono'; font-size:11.5px; color:var(--ink-soft);}
+  .hero-specs span{padding-right:20px; margin-right:20px; border-right:1px solid var(--line);}
+  .hero-specs span:last-child{border-right:none;}
+  .hero-specs b{color:var(--ink); font-weight:500;}
+
+  .iso-frame{position:relative; border:1px solid var(--line); background:var(--white); padding:20px;}
+  .iso-frame .corner{position:absolute; width:12px; height:12px;}
+  .iso-frame .corner.tl{top:-1px; left:-1px; border-top:1.5px solid var(--ink); border-left:1.5px solid var(--ink);}
+  .iso-frame .corner.tr{top:-1px; right:-1px; border-top:1.5px solid var(--ink); border-right:1.5px solid var(--ink);}
+  .iso-frame .corner.bl{bottom:-1px; left:-1px; border-bottom:1.5px solid var(--ink); border-left:1.5px solid var(--ink);}
+  .iso-frame .corner.br{bottom:-1px; right:-1px; border-bottom:1.5px solid var(--ink); border-right:1.5px solid var(--ink);}
+  .iso-caption{font-family:'IBM Plex Mono'; font-size:10px; color:var(--ink-soft); text-align:center; margin-top:10px; letter-spacing:0.04em;}
+
+  .strip{border-top:1.5px solid var(--ink); border-bottom:1.5px solid var(--ink); background:var(--white);}
+  .strip-row{display:grid; grid-template-columns:repeat(4,1fr);}
+  .strip-item{padding:22px 18px; border-right:1px solid var(--line); display:flex; flex-direction:column; gap:8px;}
+  .strip-item:last-child{border-right:none;}
+  .strip-item .n{font-family:'IBM Plex Mono'; font-size:10.5px; color:var(--accent);}
+  .strip-item span.t{font-size:13.5px; font-weight:500;}
+
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;}
+  .about-grid h2{font-size:30px; margin-bottom:16px;}
+  .about-grid p{color:var(--ink-soft); font-size:15px; margin-bottom:16px; max-width:48ch;}
+  .spec-table{border-top:1px solid var(--ink);}
+  .spec-row{display:flex; justify-content:space-between; padding:16px 4px; border-bottom:1px solid var(--line); font-size:14px;}
+  .spec-row span:first-child{color:var(--ink-soft);}
+  .spec-row span:last-child{font-family:'IBM Plex Mono'; font-weight:500;}
+
+  .services h2{font-size:30px; max-width:600px; margin-bottom:8px;}
+  .services > .wrap > p.intro{color:var(--ink-soft); margin-bottom:36px; font-size:14.5px;}
+  .svc-table{border-top:1px solid var(--ink);}
+  .svc-row{display:grid; grid-template-columns:40px 44px 1fr 1.6fr; gap:18px; align-items:center; padding:18px 4px; border-bottom:1px solid var(--line);}
+  .svc-row.featured{background:var(--accent-light);}
+  .svc-row .idx{font-family:'IBM Plex Mono'; font-size:12px; color:var(--accent);}
+  .svc-row h3{font-size:15px; font-weight:600; margin:0;}
+  .svc-row p{font-size:13px; color:var(--ink-soft); margin:0;}
+  .svc-icon{width:36px; height:36px;}
+
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); border-left:1px solid var(--line);}
+  .why-item{padding:26px 20px; border-right:1px solid var(--line); border-bottom:1px solid var(--ink);}
+  .why-item .n{font-family:'IBM Plex Mono'; font-size:20px; color:var(--accent); display:block; margin-bottom:10px;}
+  .why-item h3{font-size:14.5px; margin-bottom:6px; font-weight:600;}
+  .why-item p{font-size:12.5px; color:var(--ink-soft);}
+
+  .gallery h2{font-size:30px; margin-bottom:8px;}
+  .gallery > .wrap > p{color:var(--ink-soft); margin-bottom:36px; max-width:52ch; font-size:14.5px;}
+  .ba-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
+  .ba-card{border:1px solid var(--line); background:var(--white);}
+  .ba-imgs{display:grid; grid-template-columns:1fr 1fr;}
+  .ba-imgs>div{height:160px; position:relative; overflow:hidden; border-right:1px solid var(--line); background:var(--paper); display:flex; align-items:center; justify-content:center;}
+  .ba-imgs>div:last-child{border-right:none;}
+  .ba-imgs>div svg{width:70%; height:70%;}
+  .ba-tag{position:absolute; top:8px; left:8px; font-family:'IBM Plex Mono'; font-size:9.5px; padding:3px 8px; letter-spacing:0.04em; background:var(--paper); border:1px solid var(--ink);}
+  .ba-caption{padding:14px 16px; border-top:1px solid var(--line);}
+  .ba-caption h4{font-size:14px; font-weight:600; font-family:'Space Grotesk';}
+  .ba-caption span{font-size:11.5px; color:var(--ink-soft); font-family:'IBM Plex Mono';}
+
+  .testimonials{background:var(--white); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink);}
+  .test-grid{display:grid; grid-template-columns:repeat(3,1fr);}
+  .test-card{padding:30px 26px; border-right:1px solid var(--line);}
+  .test-card:last-child{border-right:none;}
+  .test-card .q{font-family:'Space Grotesk'; font-size:28px; color:var(--accent); line-height:0.5; margin-bottom:8px; display:block;}
+  .test-card p{font-size:14px; margin-bottom:20px; color:var(--ink);}
+  .test-who{display:flex; align-items:center; gap:10px; border-top:1px solid var(--line); padding-top:14px;}
+  .test-avatar{width:32px; height:32px; overflow:hidden; flex-shrink:0; border:1px solid var(--ink); border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--white); font-family:'IBM Plex Mono'; font-size:11px; color:var(--ink);}
+  .test-who b{font-size:12.5px; display:block; font-weight:600;}
+  .test-who span{font-size:11px; color:var(--ink-soft); font-family:'IBM Plex Mono';}
+
+  .license{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+  .lic-table{border-top:1px solid var(--ink);}
+  .lic-row{display:flex; align-items:center; gap:16px; padding:18px 4px; border-bottom:1px solid var(--line);}
+  .lic-idx{font-family:'IBM Plex Mono'; font-size:13px; color:var(--accent); width:24px;}
+  .lic-row b{display:block; font-size:14px; font-weight:600;}
+  .lic-row span{font-size:12px; color:var(--ink-soft); font-family:'IBM Plex Mono';}
+
+  .contact{background:var(--ink); color:var(--paper);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  .contact h2{color:var(--paper); font-size:30px; margin-bottom:14px;}
+  .contact .tag-label{color:var(--accent-light);}
+  .contact p.lede{color:#B7C2D6; margin-bottom:28px; max-width:40ch; font-size:15px;}
+  .contact-info-row{display:flex; justify-content:space-between; border-bottom:1px solid #33517A; padding:14px 0; font-size:13.5px;}
+  .contact-info-row b{font-weight:500;}
+  .contact-info-row span{color:#B7C2D6; font-family:'IBM Plex Mono'; font-size:12.5px;}
+  .form-card{background:var(--paper); color:var(--ink); padding:30px; border:1px solid var(--paper);}
+  .form-row{margin-bottom:16px;}
+  .form-row label{display:block; font-family:'IBM Plex Mono'; font-size:10.5px; font-weight:500; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft);}
+  .form-row input, .form-row select, .form-row textarea{width:100%; padding:11px 12px; border:1px solid var(--line); font-family:'Inter'; font-size:14px; background:var(--white); color:var(--ink);}
+  .form-row textarea{resize:vertical; min-height:88px;}
+  .form-two{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+
+  footer{background:var(--paper); color:var(--ink-soft); padding:40px 0 24px; border-top:1.5px solid var(--ink);}
+  .foot-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:28px; padding-bottom:24px; border-bottom:1px solid var(--line);}
+  .foot-brand{color:var(--ink); font-family:'Space Grotesk'; font-weight:600; font-size:16px; margin-bottom:8px;}
+  .foot-col b{color:var(--ink); font-family:'IBM Plex Mono'; font-size:11px; display:block; margin-bottom:12px; text-transform:uppercase; letter-spacing:0.04em;}
+  .foot-col a{display:block; font-size:13px; margin-bottom:8px;}
+  .foot-col a:hover{color:var(--accent);}
+  .foot-bottom{display:flex; justify-content:space-between; padding-top:18px; font-size:11.5px; font-family:'IBM Plex Mono'; flex-wrap:wrap; gap:10px;}
+  .demo-note{background:var(--ink); color:var(--paper); text-align:center; font-family:'IBM Plex Mono'; font-size:11.5px; padding:8px 0; letter-spacing:0.02em;}
+
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .hero-inner{grid-template-columns:1fr; padding:40px 0;}
+    .hero h1{font-size:32px;}
+    .about-grid, .contact-grid, .license{grid-template-columns:1fr; gap:32px;}
+    .strip-row, .why-grid{grid-template-columns:1fr 1fr;}
+    .strip-item{border-bottom:1px solid var(--line);}
+    .why-item{border-right:none;}
+    .test-grid, .ba-grid{grid-template-columns:1fr;}
+    .test-card{border-right:none; border-bottom:1px solid var(--line);}
+    .svc-row{grid-template-columns:30px 36px 1fr;}
+    .svc-row p{grid-column:1/-1; padding-left:66px;}
+    .form-two{grid-template-columns:1fr;}
+    .section{padding:52px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-note">DEMO WEBSITE — CREATED BY VY DIGITAL SOLUTIONS FOR PORTFOLIO SHOWCASE ONLY</div>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="brand-mark">BL</div>
+      <div><div class="brand-name">Bright Line Architecture</div><div class="brand-tag">OAA LIC. XXXXXX</div></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:+1XXXXXXXXXX" class="nav-call">+1 (XXX) XXX-XXXX</a>
+  </div>
+</header>
+
+<section class="wrap">
+  <div class="hero-inner">
+    <div>
+      <div class="tag-label">RESIDENTIAL &amp; COMMERCIAL DESIGN</div>
+      <h1>Buildings drawn<br>with <span class="hi">intent.</span></h1>
+      <p class="lede">Bright Line Architecture has designed homes, renovations and commercial spaces across Toronto and the GTA for over 14 years — from first sketch to building permit to completed structure.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn--accent">Book a Consultation</a>
+        <a href="tel:+1XXXXXXXXXX" class="btn btn--outline">Call Now</a>
+      </div>
+      <div class="hero-specs">
+        <span><b>14+</b> yrs in practice</span>
+        <span><b>180+</b> projects completed</span>
+        <span><b>OAA</b> licensed architects</span>
+      </div>
+    </div>
+    <div class="iso-frame">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <svg viewBox="0 0 340 260" width="100%" height="auto">
+        <!-- isometric building massing study -->
+        <g fill="none" stroke="#1D3557" stroke-width="1.4" stroke-linejoin="round">
+          <!-- lower volume -->
+          <path d="M50 200 L50 150 L140 120 L230 150 L230 200 L140 230 Z"/>
+          <path d="M50 150 L140 180 L230 150"/>
+          <path d="M140 180 L140 230"/>
+          <!-- upper volume, offset -->
+          <path d="M95 150 L95 100 L165 76 L235 100 L235 150 L165 174 Z" fill="#F0DDD3" stroke="#B5563C" stroke-width="1.6"/>
+          <path d="M95 100 L165 126 L235 100" stroke="#B5563C" stroke-width="1.2"/>
+          <line x1="165" y1="126" x2="165" y2="174" stroke="#B5563C" stroke-width="1.2"/>
+          <!-- window grid on upper volume face -->
+          <line x1="110" y1="112" x2="110" y2="152" stroke="#B5563C" stroke-width="0.7"/>
+          <line x1="130" y1="118" x2="130" y2="162" stroke="#B5563C" stroke-width="0.7"/>
+          <line x1="150" y1="124" x2="150" y2="170" stroke="#B5563C" stroke-width="0.7"/>
+        </g>
+        <!-- dimension annotations -->
+        <g stroke="#5B6C85" stroke-width="0.8" font-family="IBM Plex Mono" font-size="9" fill="#5B6C85">
+          <line x1="165" y1="60" x2="165" y2="76"/>
+          <line x1="155" y1="60" x2="175" y2="60"/>
+          <text x="180" y="64">L2</text>
+          <line x1="250" y1="150" x2="270" y2="150"/>
+          <line x1="250" y1="230" x2="270" y2="230"/>
+          <line x1="265" y1="150" x2="265" y2="230"/>
+          <text x="252" y="193" transform="rotate(90 265 193)">L1 HEIGHT</text>
+        </g>
+      </svg>
+      <div class="iso-caption">FIG. 01 — MASSING STUDY, ISOMETRIC</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap strip-row">
+    <div class="strip-item"><span class="n">01</span><span class="t">OAA Licensed Architects</span></div>
+    <div class="strip-item"><span class="n">02</span><span class="t">Free Initial Consultation</span></div>
+    <div class="strip-item"><span class="n">03</span><span class="t">Permit-Ready Drawings</span></div>
+    <div class="strip-item"><span class="n">04</span><span class="t">LEED Accredited</span></div>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="dim-line"><span class="dim-label">01 / ABOUT</span></div>
+  </div>
+  <div class="wrap about-grid">
+    <div>
+      <h2>Thoughtful design, straight through to permit.</h2>
+      <p>What started as a two-person practice in 2012 is now a team of seven licensed architects and designers serving homes and businesses across Toronto. We design for how a space will actually be used.</p>
+      <p>From a single-room renovation to a new commercial build, every project gets the same rigour — concept, drawings, permits, and construction support.</p>
+      <a href="#services" class="btn btn--outline">See What We Do</a>
+    </div>
+    <div class="spec-table">
+      <div class="spec-row"><span>In practice since</span><span>2012</span></div>
+      <div class="spec-row"><span>Licensed architects &amp; designers</span><span>7</span></div>
+      <div class="spec-row"><span>Average client rating</span><span>4.9 / 5</span></div>
+      <div class="spec-row" style="border-bottom:none;"><span>Projects completed to date</span><span>180+</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section services" id="services">
+  <div class="wrap">
+    <div class="dim-line"><span class="dim-label">02 / SERVICES</span></div>
+    <h2>Residential and commercial architecture, handled end to end.</h2>
+    <p class="intro">Nine core services — schedule below, from first concept to construction.</p>
+    <div class="svc-table">
+
+      <div class="svc-row">
+        <span class="idx">01</span>
+        <svg class="svc-icon" viewBox="0 0 40 40"><g fill="none" stroke="#1D3557" stroke-width="1.2" stroke-linejoin="round"><path d="M8 26 L8 16 L20 8 L32 16 L32 26 L20 32 Z"/><path d="M8 16 L20 22 L32 16" stroke="#B5563C"/></g></svg>
+        <h3>Residential Design</h3><p>New homes, additions and full renovations, designed around how you live.</p>
+      </div>
+
+      <div class="svc-row">
+        <span class="idx">02</span>
+        <svg class="svc-icon" viewBox="0 0 40 40"><g fill="none" stroke="#1D3557" stroke-width="1.2"><rect x="8" y="10" width="24" height="18" stroke="#B5563C"/><path d="M8 10 L20 4 L32 10"/></g></svg>
+        <h3>Commercial Design</h3><p>Office, retail and mixed-use spaces built for how a business runs.</p>
+      </div>
+
+      <div class="svc-row">
+        <span class="idx">03</span>
+        <svg class="svc-icon" viewBox="0 0 40 40"><g fill="none" stroke="#1D3557" stroke-width="1.2"><path d="M6 30 L34 30" stroke="#B5563C"/><path d="M8 26 L20 20 L32 26" /><path d="M8 20 L20 14 L32 20" /><path d="M8 14 L20 8 L32 14" /></g></svg>
+        <h3>Institutional Design</h3><p>Schools, community centres and other public-facing buildings.</p>
+      </div>
+
+      <div class="svc-row">
+        <span class="idx">04</span>
+        <svg class="svc-icon" viewBox="0 0 40 40"><g fill="none" stroke="#1D3557" stroke-width="1.2"><rect x="8" y="8" width="24" height="24" stroke="#B5563C"/><line x1="8" y1="20" x2="32" y2="20"/><line x1="20" y1="8" x2="20" y2="32"/></g></svg>
+        <h3>Space Planning &amp; Interiors</h3><p>Layouts that make a floor plan feel larger and work harder.</p>
+      </div>
+
+      <div class="svc-row">
+        <span class="idx">05</span>
+        <svg class="svc-icon" viewBox="0 0 40 40"><g fill="none" stroke="#1D3557" stroke-width="1.2"><path d="M6 32 L34 32" stroke="#B5563C"/><rect x="12" y="18" width="16" height="14"/><line x1="8" y1="32" x2="8" y2="26"/><line x1="32" y1="32" x2="32" y2="24"/></g></svg>
+        <h3>Site Planning &amp; Zoning</h3><p>Setbacks, coverage and zoning by-law review before you commit.</p>
+      </div>
+
+      <div class="svc-row featured">
+        <span class="idx">06</span>
+        <svg class="svc-icon" viewBox="0 0 40 40"><g fill="none" stroke="#1D3557" stroke-width="1.2"><rect x="8" y="8" width="24" height="24" stroke="#B5563C"/><line x1="14" y1="14" x2="26" y2="14"/><line x1="14" y1="20" x2="26" y2="20"/><line x1="14" y1="26" x2="20" y2="26"/></g></svg>
+        <h3>Building Permit Drawings</h3><p>Complete, permit-ready drawing sets for your municipality.</p>
+      </div>
+
+      <div class="svc-row">
+        <span class="idx">07</span>
+        <svg class="svc-icon" viewBox="0 0 40 40"><g fill="none" stroke="#1D3557" stroke-width="1.2"><path d="M20 6 L32 28 L8 28 Z" stroke="#B5563C"/><line x1="20" y1="14" x2="20" y2="21"/><circle cx="20" cy="25" r="0.8" fill="#1D3557"/></g></svg>
+        <h3>Construction Documents</h3><p>Detailed working drawings contractors can build from directly.</p>
+      </div>
+
+      <div class="svc-row">
+        <span class="idx">08</span>
+        <svg class="svc-icon" viewBox="0 0 40 40"><g fill="none" stroke="#1D3557" stroke-width="1.2"><path d="M8 26 L8 16 L20 8 L32 16 L32 26 L20 32 Z" stroke="#B5563C"/><path d="M8 16 L20 22 L32 16"/><line x1="20" y1="22" x2="20" y2="32"/></g></svg>
+        <h3>3D Visualization &amp; BIM</h3><p>See your project rendered and modelled before ground breaks.</p>
+      </div>
+
+      <div class="svc-row" style="border-bottom:none;">
+        <span class="idx">09</span>
+        <svg class="svc-icon" viewBox="0 0 40 40"><g fill="none" stroke="#1D3557" stroke-width="1.2"><circle cx="20" cy="20" r="9" stroke="#B5563C"/><path d="M20 4 L20 8 M20 32 L20 36 M4 20 L8 20 M32 20 L36 20"/></g></svg>
+        <h3>Feasibility Studies</h3><p>Test a site's potential before committing to full design work.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="dim-line"><span class="dim-label">03 / WHY US</span></div>
+</div>
+<div class="wrap why-grid" style="margin-bottom:0;">
+  <div class="why-item"><span class="n">A</span><h3>OAA Licensed</h3><p>Registered, licensed architects on every project.</p></div>
+  <div class="why-item"><span class="n">B</span><h3>Free Consultation</h3><p>An honest first conversation before any fees start.</p></div>
+  <div class="why-item"><span class="n">C</span><h3>Permit Support</h3><p>We handle drawings, submissions, and municipal review.</p></div>
+  <div class="why-item"><span class="n">D</span><h3>LEED Accredited</h3><p>Sustainable design options built into every project.</p></div>
+</div>
+
+<section class="section gallery" id="work">
+  <div class="wrap">
+    <div class="dim-line"><span class="dim-label">04 / RECENT WORK</span></div>
+    <h2>Concept to completed structure.</h2>
+    <p>A few recent projects from around Toronto — sample photos for this demo.</p>
+    <div class="ba-grid">
+      <div class="ba-card">
+        <div class="ba-imgs">
+          <div><span class="ba-tag">CONCEPT</span>
+            <svg viewBox="0 0 100 90" fill="none">
+              <g stroke="#5B6C85" stroke-width="1" stroke-dasharray="3 2">
+                <path d="M15 70 L15 40 L50 22 L85 40 L85 70 L50 88 Z"/>
+                <path d="M15 40 L50 58 L85 40"/>
+                <line x1="50" y1="58" x2="50" y2="88"/>
+              </g>
+            </svg>
+          </div>
+          <div><span class="ba-tag">BUILT</span>
+            <svg viewBox="0 0 100 90" fill="none">
+              <g stroke="#1D3557" stroke-width="1.3" stroke-linejoin="round">
+                <path d="M15 70 L15 40 L50 22 L85 40 L85 70 L50 88 Z" fill="#F0DDD3" stroke="#B5563C"/>
+                <path d="M15 40 L50 58 L85 40" stroke="#1D3557"/>
+                <line x1="50" y1="58" x2="50" y2="88" stroke="#1D3557"/>
+                <line x1="30" y1="50" x2="30" y2="72" stroke-width="0.6"/>
+                <line x1="70" y1="50" x2="70" y2="72" stroke-width="0.6"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="ba-caption"><h4>Laneway Residence</h4><span>RESIDENTIAL — TORONTO</span></div>
+      </div>
+      <div class="ba-card">
+        <div class="ba-imgs">
+          <div><span class="ba-tag">CONCEPT</span>
+            <svg viewBox="0 0 100 90" fill="none">
+              <g stroke="#5B6C85" stroke-width="1" stroke-dasharray="3 2">
+                <rect x="20" y="30" width="60" height="45"/>
+                <path d="M20 30 L50 15 L80 30"/>
+                <line x1="20" y1="45" x2="80" y2="45"/>
+                <line x1="20" y1="60" x2="80" y2="60"/>
+              </g>
+            </svg>
+          </div>
+          <div><span class="ba-tag">BUILT</span>
+            <svg viewBox="0 0 100 90" fill="none">
+              <g stroke="#1D3557" stroke-width="1.3" stroke-linejoin="round">
+                <rect x="20" y="30" width="60" height="45" fill="#F0DDD3" stroke="#B5563C"/>
+                <path d="M20 30 L50 15 L80 30" stroke="#1D3557"/>
+                <line x1="20" y1="45" x2="80" y2="45" stroke-width="0.6"/>
+                <line x1="35" y1="45" x2="35" y2="75" stroke-width="0.6"/>
+                <line x1="65" y1="45" x2="65" y2="75" stroke-width="0.6"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="ba-caption"><h4>Mixed-Use Retail Block</h4><span>COMMERCIAL — OFFICE BUILDING</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="wrap" style="padding:70px 24px 50px;">
+    <div class="dim-line"><span class="dim-label">05 / REVIEWS</span></div>
+    <h2 style="margin-bottom:32px;">What people say after we've left.</h2>
+  </div>
+  <div class="wrap test-grid">
+    <div class="test-card"><span class="q">“</span><p>They took a laneway lot everyone said was too small and gave us a home that doesn't feel like a compromise.</p><div class="test-who"><div class="test-avatar">SM</div><div><b>Sara M.</b><span>RESIDENTIAL CLIENT</span></div></div></div>
+    <div class="test-card"><span class="q">“</span><p>Handled our retail fit-out from zoning review through to permit drawings without a single delay.</p><div class="test-who"><div class="test-avatar">RK</div><div><b>Raj K.</b><span>COMMERCIAL CLIENT</span></div></div></div>
+    <div class="test-card"><span class="q">“</span><p>The feasibility study saved us from a costly mistake before we'd spent a dollar on design.</p><div class="test-who"><div class="test-avatar">DT</div><div><b>Dave T.</b><span>RESIDENTIAL CLIENT</span></div></div></div>
+  </div>
+</section>
+
+<section class="section license">
+  <div class="wrap">
+    <div class="dim-line" style="margin-bottom:30px;"><span class="dim-label">06 / LICENSING</span></div>
+  </div>
+  <div class="wrap license">
+    <div>
+      <h2 style="font-size:26px; margin-bottom:14px;">OAA licensed.<br>Fully insured.</h2>
+      <p style="color:var(--ink-soft); max-width:44ch; font-size:14.5px;">Bright Line Architecture is registered with the Ontario Association of Architects (OAA) under license #XXXXXX and carries full professional liability insurance. Documents available on request.</p>
+    </div>
+    <div class="lic-table">
+      <div class="lic-row"><span class="lic-idx">A</span><div><b>OAA Registration</b><span>#XXXXXX</span></div></div>
+      <div class="lic-row"><span class="lic-idx">B</span><div><b>Professional Liability Insured</b><span>UP TO $5M COVERAGE</span></div></div>
+      <div class="lic-row" style="border-bottom:none;"><span class="lic-idx">C</span><div><b>LEED Accredited Professional</b><span>CANADA GREEN BUILDING COUNCIL</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="tag-label">07 / GET IN TOUCH</div>
+      <h2>Book a<br>consultation.</h2>
+      <p class="lede">Tell us about your project and we'll get back to you within one business day.</p>
+      <div class="contact-info-row"><b>Phone</b><span>+1 (XXX) XXX-XXXX</span></div>
+      <div class="contact-info-row"><b>Email</b><span>info@brightlinearch.com</span></div>
+      <div class="contact-info-row" style="border-bottom:none;"><b>Service Area</b><span>TORONTO &amp; GTA</span></div>
+    </div>
+    <div class="form-card">
+      <form id="quoteForm" action="https://formsubmit.co/info@brightlinearch.com" method="POST">
+        <input type="hidden" name="_subject" value="New consultation request — Bright Line Architecture website">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-row"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required></div>
+        <div class="form-two">
+          <div class="form-row"><label>Phone</label><input type="tel" name="phone" placeholder="(XXX) XXX-XXXX" required></div>
+          <div class="form-row"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
+        </div>
+        <div class="form-row"><label>Project Type</label>
+          <select name="service">
+            <option>Residential design</option><option>Commercial design</option><option>Institutional design</option><option>Renovation / addition</option><option>Permit drawings</option><option>Feasibility study</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-row"><label>Message</label><textarea name="message" placeholder="Tell us about your project" required></textarea></div>
+        <button type="submit" class="btn btn--accent" style="width:100%; justify-content:center;">Book Consultation</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="foot-brand">Bright Line Architecture</div><p style="font-size:13px; max-width:26ch;">Licensed architects serving Toronto and the GTA since 2012.</p></div>
+      <div class="foot-col"><b>Services</b><a href="#services">Residential design</a><a href="#services">Commercial design</a><a href="#services">Permit drawings</a></div>
+      <div class="foot-col"><b>Company</b><a href="#about">About us</a><a href="#work">Our work</a><a href="#testimonials">Reviews</a></div>
+      <div class="foot-col"><b>Contact</b><a href="tel:+1XXXXXXXXXX">+1 (XXX) XXX-XXXX</a><a href="mailto:info@brightlinearch.com">info@brightlinearch.com</a></div>
+    </div>
+    <div class="wrap foot-bottom" style="padding:0;"><span>© 2026 BRIGHT LINE ARCHITECTURE</span><span>DEMO BY VY DIGITAL SOLUTIONS</span></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e){
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
