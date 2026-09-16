@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VY Digital Solutions — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14203A; --ink-soft:#5A6478; --accent:#2451D6; --paper:#F7F8FA; --line:#E3E6EC;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Inter',sans-serif; background:var(--paper); color:var(--ink); line-height:1.6;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  header{padding:60px 0 40px; text-align:center;}
+  header h1{font-size:34px; font-weight:800; margin-bottom:12px;}
+  header p{color:var(--ink-soft); font-size:16px; max-width:520px; margin:0 auto;}
+
+  .filter-row{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:30px 0 40px;}
+  .filter-btn{
+    font-size:13.5px; font-weight:600; padding:9px 18px; border-radius:20px; border:1px solid var(--line);
+    background:#fff; color:var(--ink-soft); cursor:pointer;
+  }
+  .filter-btn.active{background:var(--ink); color:#fff; border-color:var(--ink);}
+
+  .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px; padding-bottom:80px;}
+  .card{background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; transition:transform 0.15s ease, box-shadow 0.15s ease;}
+  .card:hover{transform:translateY(-4px); box-shadow:0 12px 28px rgba(20,32,58,0.10);}
+  .card-top{height:150px; display:flex; align-items:center; justify-content:center; font-size:44px;}
+  .card-body{padding:20px 22px 24px;}
+  .card-cat{font-size:11.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px;}
+  .card h3{font-size:18px; margin-bottom:8px;}
+  .card p{font-size:13.5px; color:var(--ink-soft); margin-bottom:18px;}
+  .card a{
+    display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:600; color:var(--accent);
+    padding:10px 18px; border:1.5px solid var(--accent); border-radius:8px;
+  }
+  .card a:hover{background:var(--accent); color:#fff;}
+
+  footer{text-align:center; padding:30px 0 50px; color:var(--ink-soft); font-size:13px;}
+
+  @media(max-width:700px){
+    .grid{grid-template-columns:1fr;}
+    header h1{font-size:26px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <h1>Our Work</h1>
+  <p>A sample of website designs by VY Digital Solutions — built to show what's possible for your business.</p>
+</header>
+
+<div class="wrap">
+  <div class="filter-row">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="home-services">Home Services</button>
+    <button class="filter-btn" data-filter="professional">Professional</button>
+    <button class="filter-btn" data-filter="education">Education</button>
+  </div>
+
+  <div class="grid" id="grid">
+
+    <div class="card" data-cat="home-services">
+      <div class="card-top" style="background:#E4ECFF;">🔧</div>
+      <div class="card-body">
+        <div class="card-cat">Home Services</div>
+        <h3>ABC Plumbing</h3>
+        <p>Landing page for a residential &amp; commercial plumbing business — services, gallery, testimonials, and a working quote-request form.</p>
+        <a href="/plumbing/">View Demo →</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="home-services">
+      <div class="card-top" style="background:#F0DDD3;">🏠</div>
+      <div class="card-body">
+        <div class="card-cat">Home Services</div>
+        <h3>Your Roofers</h3>
+        <p>Vintage trade-badge styled site for a roofing contractor — services, licensing, and before/after project gallery.</p>
+        <a href="/roofing/">View Demo →</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="professional">
+      <div class="card-top" style="background:#F0DDD3;">📐</div>
+      <div class="card-body">
+        <div class="card-cat">Professional</div>
+        <h3>Bright Line Architecture</h3>
+        <p>Architectural blueprint-styled site for a residential &amp; commercial architecture practice, with isometric line-art illustrations.</p>
+        <a href="/architecture/">View Demo →</a>
+      </div>
+    </div>
+
+    <div class="card" data-cat="education">
+      <div class="card-top" style="background:#EFE6D0;">🚗</div>
+      <div class="card-body">
+        <div class="card-cat">Education</div>
+        <h3>GreenLight Driving School</h3>
+        <p>Exam-scoresheet styled site for a driving school — G1/G2/G test prep, BDE course, and specialized driver programs.</p>
+        <a href="/driving-school/">View Demo →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  Demo websites created by VY Digital Solutions — for portfolio showcase purposes only
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.card');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.cat === filter) ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
