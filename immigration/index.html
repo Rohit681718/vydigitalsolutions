@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maple Path Immigration Consultants — RCIC Licensed, Canada-Wide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal: #0B3142;
+    --teal-2: #123E52;
+    --gold: #C89B3C;
+    --gold-dark: #A57D28;
+    --cream: #FAF7F0;
+    --ink: #1B2A2F;
+    --ink-soft: #5A6B70;
+    --line: #E3DFD2;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Work Sans', sans-serif; background:var(--cream); color:var(--ink); line-height:1.65;}
+  h1,h2,h3{font-family:'DM Serif Display', serif; font-weight:400; color:var(--ink); line-height:1.2;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+  .section{padding:88px 0;}
+  .eyebrow{font-size:12.5px; font-weight:700; color:var(--gold-dark); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:16px; display:flex; align-items:center; gap:10px;}
+  .eyebrow::before{content:""; width:26px; height:2px; background:var(--gold); flex-shrink:0;}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:15px 30px; border-radius:4px; font-weight:600; font-size:14.5px; border:1.5px solid transparent; cursor:pointer;}
+  .btn--gold{background:var(--gold); color:#fff;}
+  .btn--gold:hover{background:var(--gold-dark);}
+  .btn--outline-light{background:transparent; border-color:rgba(255,255,255,0.35); color:#fff;}
+  .btn--outline-light:hover{border-color:#fff;}
+  .btn--outline{background:transparent; border-color:var(--teal); color:var(--teal);}
+  .btn--outline:hover{background:var(--teal); color:#fff;}
+
+  /* passport-stamp badge — signature motif */
+  .stamp{
+    width:64px; height:64px; border-radius:50%; border:2px dashed var(--gold);
+    display:flex; align-items:center; justify-content:center; position:relative; flex-shrink:0;
+    transform:rotate(-6deg);
+  }
+  .stamp svg{width:26px; height:26px; color:var(--teal);}
+
+  header{background:var(--teal); border-bottom:1px solid rgba(255,255,255,0.08); position:sticky; top:0; z-index:50;}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-mark{width:42px; height:42px; border-radius:50%; border:2px dashed var(--gold); display:flex; align-items:center; justify-content:center; font-family:'DM Serif Display'; font-size:15px; color:var(--gold);}
+  .brand-name{font-family:'DM Serif Display'; font-size:19px; color:#fff;}
+  .brand-tag{font-size:11px; color:#9FB2B8; letter-spacing:0.04em;}
+  .nav-links{display:flex; gap:28px; align-items:center;}
+  .nav-links a{font-size:14px; font-weight:500; color:#C7D3D6;}
+  .nav-links a:hover{color:var(--gold);}
+  .nav-call{background:var(--gold); color:#fff; padding:10px 20px; border-radius:4px; font-weight:600; font-size:13.5px;}
+
+  .hero{background:var(--teal); color:#fff; position:relative; overflow:hidden;}
+  .hero-map{position:absolute; top:-40px; right:-80px; width:520px; opacity:0.10;}
+  .hero-inner{padding:76px 0 66px; position:relative; z-index:1; max-width:660px;}
+  .hero .eyebrow{color:var(--gold);}
+  .hero h1{font-size:48px; color:#fff; margin-bottom:20px;}
+  .hero h1 em{font-style:italic; color:var(--gold);}
+  .hero p.lede{color:#C7D3D6; font-size:16px; max-width:520px; margin-bottom:32px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:44px;}
+  .cred-row{display:flex; gap:30px; flex-wrap:wrap; border-top:1px solid rgba(255,255,255,0.12); padding-top:24px;}
+  .cred-item{font-size:12.5px; color:#9FB2B8;}
+  .cred-item b{display:block; font-family:'DM Serif Display'; font-size:22px; color:var(--gold);}
+
+  .strip{background:#fff; border-bottom:1px solid var(--line);}
+  .strip-row{display:grid; grid-template-columns:repeat(4,1fr);}
+  .strip-item{padding:22px 16px; text-align:center; border-right:1px solid var(--line); display:flex; flex-direction:column; align-items:center; gap:8px;}
+  .strip-item:last-child{border-right:none;}
+  .strip-item svg{width:22px; height:22px; color:var(--gold-dark);}
+  .strip-item span{font-size:12.5px; font-weight:600;}
+
+  .services h2{font-size:32px; max-width:600px; margin-bottom:12px;}
+  .services > .wrap > p.intro{color:var(--ink-soft); margin-bottom:40px; max-width:60ch;}
+  .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .svc-card{background:#fff; border:1px solid var(--line); padding:26px 22px; position:relative;}
+  .svc-card.featured{background:var(--teal); border-color:var(--teal);}
+  .svc-card.featured h3, .svc-card.featured p{color:#fff;}
+  .svc-tag{position:absolute; top:20px; right:20px; background:var(--gold); color:#fff; font-size:10px; font-weight:700; padding:4px 10px; border-radius:999px;}
+  .svc-card .stamp{width:46px; height:46px; margin-bottom:14px;}
+  .svc-card .stamp svg{width:20px; height:20px;}
+  .svc-card.featured .stamp{border-color:var(--gold);}
+  .svc-card.featured .stamp svg{color:var(--gold);}
+  .svc-card h3{font-size:17px; margin-bottom:8px; font-family:'Work Sans'; font-weight:700;}
+  .svc-card p{font-size:13px; color:var(--ink-soft);}
+
+  .process{background:var(--teal); color:#fff;}
+  .process .eyebrow{color:var(--gold);}
+  .process h2{color:#fff; font-size:30px; margin-bottom:40px;}
+  .process-row{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(255,255,255,0.12);}
+  .process-step{background:var(--teal); padding:26px 20px;}
+  .process-step .num{font-family:'DM Serif Display'; font-size:26px; color:var(--gold); margin-bottom:10px;}
+  .process-step h4{font-size:15px; color:#fff; margin-bottom:6px; font-family:'Work Sans'; font-weight:700;}
+  .process-step p{font-size:12.5px; color:#9FB2B8;}
+
+  .languages{background:var(--cream); text-align:center;}
+  .languages h2{font-size:26px; margin-bottom:20px;}
+  .lang-row{display:flex; gap:12px; flex-wrap:wrap; justify-content:center;}
+  .lang-chip{border:1px solid var(--line); background:#fff; padding:10px 20px; font-size:13.5px; font-weight:600; border-radius:999px;}
+
+  .testimonials{background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .test-card{background:var(--cream); border-left:3px solid var(--gold); padding:24px;}
+  .stars{color:var(--gold); font-size:15px; margin-bottom:12px;}
+  .test-card p{font-size:13.5px; margin-bottom:16px; font-style:italic;}
+  .test-who{font-size:12.5px; color:var(--ink-soft); font-weight:600;}
+
+  .license{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
+  .lic-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .lic-badge{flex:1; min-width:150px; text-align:center; background:#fff; border:1px solid var(--line); padding:22px;}
+  .lic-badge .stamp{margin:0 auto 12px;}
+  .lic-badge b{display:block; font-size:13.5px; font-weight:700;}
+  .lic-badge span{font-size:11.5px; color:var(--ink-soft);}
+
+  .contact{background:var(--teal); color:#fff;}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  .contact h2{color:#fff; font-size:30px; margin-bottom:14px;}
+  .contact .eyebrow{color:var(--gold);}
+  .contact p.lede{color:#C7D3D6; margin-bottom:28px; max-width:40ch;}
+  .contact-info-row{display:flex; justify-content:space-between; border-bottom:1px solid #234A57; padding:14px 0; font-size:13.5px;}
+  .contact-info-row span:last-child{color:#C7D3D6;}
+  .form-card{background:var(--cream); color:var(--ink); padding:30px; border-top:3px solid var(--gold);}
+  .form-row{margin-bottom:16px;}
+  .form-row label{display:block; font-size:12px; font-weight:600; margin-bottom:6px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.03em;}
+  .form-row input, .form-row select, .form-row textarea{width:100%; padding:11px 13px; border:1px solid var(--line); font-family:'Work Sans'; font-size:14px; background:#fff;}
+  .form-row textarea{resize:vertical; min-height:88px;}
+  .form-two{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+
+  footer{background:#082530; color:#8FA3A9; padding:44px 0 24px;}
+  .foot-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:28px; padding-bottom:24px; border-bottom:1px solid #1B4552;}
+  .foot-brand{color:#fff; font-family:'DM Serif Display'; font-size:17px; margin-bottom:8px;}
+  .foot-col b{color:#C7D3D6; font-size:12px; display:block; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.04em;}
+  .foot-col a{display:block; font-size:13px; margin-bottom:7px;}
+  .foot-col a:hover{color:var(--gold);}
+  .foot-bottom{display:flex; justify-content:space-between; padding-top:18px; font-size:11.5px; flex-wrap:wrap; gap:10px;}
+  .demo-note{background:var(--gold); color:#fff; text-align:center; font-size:12.5px; font-weight:700; padding:9px 0;}
+
+  @media(max-width:860px){
+    .nav-links{display:none;}
+    .hero h1{font-size:32px;}
+    .cred-row{gap:18px;}
+    .strip-row, .svc-grid{grid-template-columns:1fr 1fr;}
+    .process-row{grid-template-columns:1fr 1fr;}
+    .test-grid{grid-template-columns:1fr;}
+    .license, .contact-grid{grid-template-columns:1fr; gap:30px;}
+    .form-two{grid-template-columns:1fr;}
+    .hero-map{display:none;}
+    .section{padding:52px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-note">Demo website created by VY Digital Solutions — for portfolio showcase purposes only</div>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="brand-mark">MP</div>
+      <div><div class="brand-name">Maple Path</div><div class="brand-tag">Immigration Consultants</div></div>
+    </div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-call">Free Consultation</a>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="hero-map" viewBox="0 0 500 300" fill="none" stroke="#fff" stroke-width="0.6">
+    <path d="M40 120 Q60 90 100 95 T160 85 Q190 70 230 90 T300 80 Q340 100 380 90 T460 110" />
+    <path d="M50 160 Q90 140 140 150 T220 140 Q260 155 310 145 T400 155 Q430 145 460 160" />
+    <path d="M30 200 Q80 180 130 195 T210 185 Q250 200 300 190 T390 200 Q420 190 470 205" />
+    <circle cx="230" cy="90" r="3" fill="#fff"/>
+    <circle cx="300" cy="80" r="3" fill="#fff"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">RCIC Licensed &middot; Canada-Wide</div>
+    <h1>Your journey to Canada,<br><em>guided step by step.</em></h1>
+    <p class="lede">Maple Path Immigration Consultants has helped families, students, and skilled workers navigate Express Entry, study permits, work permits, and sponsorship for over 10 years.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn--gold">Book Free Consultation</a>
+      <a href="#services" class="btn btn--outline-light">Our Services</a>
+    </div>
+    <div class="cred-row">
+      <div class="cred-item"><b>RCIC</b>Licensed Consultant</div>
+      <div class="cred-item"><b>10+</b>Years of Practice</div>
+      <div class="cred-item"><b>1,200+</b>Applications Filed</div>
+      <div class="cred-item"><b>95%</b>Approval Rate</div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap strip-row">
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg><span>RCIC Licensed</span></div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 2h16v20l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5-2 1.5z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/></svg><span>Free Initial Consultation</span></div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Multilingual Team</span></div>
+    <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg><span>CICC Regulated</span></div>
+  </div>
+</div>
+
+<section class="section services" id="services">
+  <div class="wrap">
+    <span class="eyebrow">What We Handle</span>
+    <h2>Every pathway to Canada, in one place.</h2>
+    <p class="intro">From your first application to landing in Canada, we handle the paperwork so you can focus on the move.</p>
+    <div class="svc-grid">
+
+      <div class="svc-card featured">
+        <span class="svc-tag">Most Requested</span>
+        <div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <h3>Express Entry &amp; PR</h3><p>Permanent residency through the federal Express Entry system, start to finish.</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <h3>Study Permits</h3><p>Applications for Canadian colleges and universities, done right the first time.</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <h3>Work Permits</h3><p>LMIA-based and post-graduation work permits (PGWP).</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3>Family Sponsorship</h3><p>Spousal, parent, and super visa sponsorship applications.</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
+        <h3>Provincial Nominee Program</h3><p>PNP streams tailored to your province and profile.</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <h3>Visitor Visa &amp; Super Visa</h3><p>Temporary resident visas for visits, family, and travel.</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
+        <h3>Citizenship Applications</h3><p>Guidance through the citizenship test and application process.</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l9 4.5v9L12 22l-9-6.5v-9z"/><path d="M12 22V11M21 6.5L12 11 3 6.5"/></svg></div>
+        <h3>Business &amp; Investor Immigration</h3><p>Start-up visa and investor pathways for entrepreneurs.</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <h3>Appeals &amp; Refusal Reviews</h3><p>Support for refused applications and appeal submissions.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section process" id="process">
+  <div class="wrap">
+    <span class="eyebrow">How It Works</span>
+    <h2>A clear process, from start to landing.</h2>
+    <div class="process-row">
+      <div class="process-step"><div class="num">01</div><h4>Free Consultation</h4><p>We assess your profile and outline your realistic options.</p></div>
+      <div class="process-step"><div class="num">02</div><h4>Document Review</h4><p>We identify exactly what's needed and help you gather it.</p></div>
+      <div class="process-step"><div class="num">03</div><h4>Application Filed</h4><p>Prepared and submitted accurately, with nothing missed.</p></div>
+      <div class="process-step"><div class="num">04</div><h4>Ongoing Support</h4><p>We track your file and respond to any requests until a decision.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section languages">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center;">Multilingual Team</span>
+    <h2>We speak your language.</h2>
+    <div class="lang-row">
+      <span class="lang-chip">English</span>
+      <span class="lang-chip">French</span>
+      <span class="lang-chip">Hindi</span>
+      <span class="lang-chip">Punjabi</span>
+      <span class="lang-chip">Gujarati</span>
+      <span class="lang-chip">Mandarin</span>
+      <span class="lang-chip">Tagalog</span>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonials" id="testimonials">
+  <div class="wrap">
+    <span class="eyebrow">Client Stories</span>
+    <h2 style="font-size:30px; margin-bottom:32px;">What our clients say.</h2>
+    <div class="test-grid">
+      <div class="test-card"><div class="stars">★★★★★</div><p>"My Express Entry profile was rejected twice on my own. Maple Path found the issue, fixed it, and I got my ITA within two months."</p><div class="test-who">Simran K. — Express Entry, PR Approved</div></div>
+      <div class="test-card"><div class="stars">★★★★★</div><p>"They handled my daughter's study permit application from start to finish. Clear updates the whole way, no surprises."</p><div class="test-who">Michael O. — Study Permit</div></div>
+      <div class="test-card"><div class="stars">★★★★★</div><p>"Sponsoring my parents felt overwhelming until we found this team. They explained every step in plain language."</p><div class="test-who">Fatima R. — Parent Sponsorship</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section license">
+  <div class="wrap license">
+    <div>
+      <span class="eyebrow">Licensing &amp; Regulation</span>
+      <h2 style="font-size:28px; margin-bottom:14px;">Regulated. Licensed. Accountable.</h2>
+      <p style="color:var(--ink-soft); max-width:44ch;">Maple Path Immigration Consultants is licensed by the College of Immigration and Citizenship Consultants (CICC), RCIC #XXXXXX, and carries full professional liability insurance.</p>
+    </div>
+    <div class="lic-row">
+      <div class="lic-badge"><div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><b>RCIC License</b><span>#XXXXXX</span></div>
+      <div class="lic-badge"><div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 13"/></svg></div><b>CICC Regulated</b><span>Member in good standing</span></div>
+      <div class="lic-badge"><div class="stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div><b>Liability Insured</b><span>Professional coverage</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow">Get Started</span>
+      <h2>Book your free consultation.</h2>
+      <p class="lede">Tell us about your situation and we'll outline your options within one business day.</p>
+      <div class="contact-info-row"><span>Phone</span><span>+1 (XXX) XXX-XXXX</span></div>
+      <div class="contact-info-row"><span>Email</span><span>info@maplepathimmigration.ca</span></div>
+      <div class="contact-info-row" style="border-bottom:none;"><span>Office</span><span>Toronto, ON — Serving Canada-Wide</span></div>
+    </div>
+    <div class="form-card">
+      <form id="consultForm" action="https://formsubmit.co/info@maplepathimmigration.ca" method="POST">
+        <input type="hidden" name="_subject" value="New consultation request — Maple Path Immigration website">
+        <input type="hidden" name="_captcha" value="false">
+        <div class="form-row"><label>Full Name</label><input type="text" name="name" placeholder="Your name" required></div>
+        <div class="form-two">
+          <div class="form-row"><label>Phone</label><input type="tel" name="phone" placeholder="(XXX) XXX-XXXX" required></div>
+          <div class="form-row"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
+        </div>
+        <div class="form-row"><label>Immigration Goal</label>
+          <select name="service">
+            <option>Express Entry / PR</option><option>Study Permit</option><option>Work Permit</option><option>Family Sponsorship</option><option>Provincial Nominee Program</option><option>Visitor Visa</option><option>Citizenship</option><option>Business Immigration</option><option>Appeal / Refusal Review</option>
+          </select>
+        </div>
+        <div class="form-row"><label>Message</label><textarea name="message" placeholder="Tell us about your situation" required></textarea></div>
+        <button type="submit" class="btn btn--gold" style="width:100%; justify-content:center;">Book Free Consultation</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><div class="foot-brand">Maple Path Immigration</div><p style="font-size:13px; max-width:28ch;">RCIC-licensed consultants guiding your journey to Canada since 2014.</p></div>
+      <div class="foot-col"><b>Services</b><a href="#services">Express Entry</a><a href="#services">Study Permits</a><a href="#services">Sponsorship</a></div>
+      <div class="foot-col"><b>Company</b><a href="#process">Our Process</a><a href="#testimonials">Reviews</a><a href="#contact">Contact</a></div>
+      <div class="foot-col"><b>Contact</b><a href="mailto:info@maplepathimmigration.ca">info@maplepathimmigration.ca</a><a href="#contact">Book Consultation</a></div>
+    </div>
+    <div class="wrap foot-bottom" style="padding:0;"><span>© 2026 Maple Path Immigration Consultants. All rights reserved.</span><span>Demo website by VY Digital Solutions</span></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e){
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
